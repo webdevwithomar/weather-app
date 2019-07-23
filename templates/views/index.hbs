@@ -11,10 +11,15 @@
 <body>
     {{>header}}
     <main>
-        <form>
-            <input type="text" />
-            <button>Submit</button>
+        <form method="get" action="/weather">
+            <input type="text" name="address" required />
+            <button type="submit">Submit</button>
         </form>
+        {{#each features}}
+        <div>
+            {{this.place_name}}
+        </div>
+        {{/each}}
     </main>
     {{>footer}}
 </body>

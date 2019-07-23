@@ -5,6 +5,9 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+// local imports
+const geocode = require('./utils/geocode');
+
 const port = process.env.port || 3000;
 const app = express();
 
@@ -26,6 +29,19 @@ app.get('/', (req, res) => {
     res.render('index', {
         title: 'Weather App'
     });
+});
+
+app.get('/weather', (req, res) => {
+    if (req.query.address) {
+        geocode(req.query.address, (error, response) => {
+            if (error) {
+                return res.render('index', { error })
+            }
+            return res.render('index', {
+                features: response
+            });
+        });
+    }
 });
 
 app.listen(port, () => {
