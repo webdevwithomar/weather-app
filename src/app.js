@@ -7,6 +7,7 @@ const hbs = require('hbs');
 
 // local imports
 const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 const port = process.env.port || 3000;
 const app = express();
@@ -36,10 +37,31 @@ app.get('/weather', (req, res) => {
         geocode(req.query.address, (error, response) => {
             if (error) {
                 return res.render('index', { error })
+            } else {
+                const places = [];
+                const storeForecast = []
+
+                for (let i = 0; i < response.length; i++) {
+                    places.push(response[i]);
+
+                    const lat = response[i].center[0];
+                    const long = response[i].center[1];
+
+                    forecast(long, lat, (error, data) => {
+                        if (error) {
+                            storeForecast.push({ error: error });
+                        } else {
+                            storeForecast.push(data);
+                        }
+                    })
+                }
+
+                console.log(storeForecast);
+                return res.render('index', {
+                    geolocation: places,
+                    weather: storeForecast
+                });
             }
-            return res.render('index', {
-                features: response
-            });
         });
     }
 });
