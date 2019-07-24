@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "A simple weather application.",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
