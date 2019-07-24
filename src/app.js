@@ -33,37 +33,29 @@ app.get('/', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    if (req.query.address) {
-        geocode(req.query.address, (error, response) => {
-            if (error) {
-                return res.render('index', { error })
-            } else {
-                const places = [];
-                const storeForecast = []
-
-                for (let i = 0; i < response.length; i++) {
-                    places.push(response[i]);
-
-                    const lat = response[i].center[0];
-                    const long = response[i].center[1];
-
-                    forecast(long, lat, (error, data) => {
-                        if (error) {
-                            storeForecast.push({ error: error });
-                        } else {
-                            storeForecast.push(data);
-                        }
-                    })
-                }
-
-                console.log(storeForecast);
-                return res.render('index', {
-                    geolocation: places,
-                    weather: storeForecast
-                });
-            }
-        });
+    if (!req.query.address) {
+        return res.send({
+            error: 'Please type a location'
+        })
     }
+
+    geocode(req.query.address, (error, response) => {
+        if (error) {
+            return res.send({
+                error: error
+            })
+        }
+
+        const locationName = response[0].place_name;
+
+        return forecast(response[0].center[0], response[0].center[1], (error, response) => {
+            if (error) {
+                return res.send({ error: error })
+            }
+
+            return res.send({ weather: response, location: locationName })
+        })
+    })
 });
 
 app.listen(port, () => {

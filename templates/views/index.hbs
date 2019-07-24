@@ -15,122 +15,37 @@
         <div class="container">
 
             {{!-- form --}}
-            <form method="get" action="/weather">
+            <form class="getWeatherForm">
                 <div class="form-input">
-                    <input type="text" name="address" placeholder="Type the name of a location or a city" required />
+                    <input type="text" placeholder="Type the name of a location or a city" required />
                 </div>
                 <button class="btn" type="submit">Submit</button>
             </form>
 
-            <h2 class="heading2">2 Results Found</h2>
+            <h2 class="heading2"></h2>
+
             {{!-- result --}}
             <div class="result">
-                <div class="resultCard">
+
+                {{!-- <div class="resultCard">
                     <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
+                        <h3></h3>
+                        <p></p>
                     </div>
                     <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
+                        <p>Humidity: </p>
+                        <p>Feels Like: </p>
+                        <p>Wind Speed: </p>
+                        <p>Wind Gust: </p>
+                        <p></p>
                     </div>
-                </div>
-                <div class="resultCard">
-                    <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
-                    </div>
-                    <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
-                    </div>
-                </div>
-                <div class="resultCard">
-                    <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
-                    </div>
-                    <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
-                    </div>
-                </div>
-                <div class="resultCard">
-                    <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
-                    </div>
-                    <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
-                    </div>
-                </div>
-                <div class="resultCard">
-                    <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
-                    </div>
-                    <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
-                    </div>
-                </div>
-                <div class="resultCard">
-                    <div class="resultCardHeader">
-                        <h3>30°C</h3>
-                        <p>Place Name: Dhaka, Dhaka Bangladesh</p>
-                    </div>
-                    <div class="resultCardBody">
-                        <p>Humidity: 0.85</p>
-                        <p>Feels Like: 38.95</p>
-                        <p>Wind Speed: 3.45</p>
-                        <p>Wind Gust: 9.26</p>
-                        <p>Mostly Humid and Cloudy. Light rain throughout the week, with high temperatures bottoming out
-                            at
-                            30°C on Sunday."
-                        </p>
-                    </div>
-                </div>
+                </div> --}}
+
             </div>
-            {{!-- {{#each features}}
-        <div>
-            {{this.place_name}}
-            <a href='/forecast/'></a>
-        </div>
-        {{/each}} --}}
         </div>
     </main>
     {{>footer}}
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
