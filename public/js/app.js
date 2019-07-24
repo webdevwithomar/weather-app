@@ -5,8 +5,13 @@ const result = document.querySelector('.result');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (result.contains(document.querySelector('.resultCard'))) {
+        result.removeChild(document.querySelector('.resultCard'));
+    }
+
     const location = search.value;
-    console.log(location);
+
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
